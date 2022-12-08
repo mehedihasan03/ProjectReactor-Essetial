@@ -1,8 +1,10 @@
 package com.example.reactive.test;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.reactivestreams.Subscription;
+import reactor.blockhound.BlockHound;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
@@ -24,6 +26,11 @@ import reactor.test.StepVerifier;
 
 @Slf4j
 public class MonoTest {
+
+    @BeforeAll
+    public static void setUp(){
+        BlockHound.install();
+    }
     @Test
     public void monoSubscriber(){
         String name = "Mehedi Hasan";

@@ -1,7 +1,9 @@
 package com.example.reactive.test;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import reactor.blockhound.BlockHound;
 import reactor.core.publisher.ConnectableFlux;
 import reactor.core.publisher.Flux;
 import reactor.test.StepVerifier;
@@ -10,6 +12,11 @@ import java.time.Duration;
 
 @Slf4j
 public class ConnectableFluxTest {
+
+    @BeforeAll
+    public static void setUp(){
+        BlockHound.install();
+    }
 
     @Test
     public void ConnectableFlux() throws Exception{
